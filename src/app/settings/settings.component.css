@@ -1,0 +1,30 @@
+.container-fluid #manageWindow{
+    margin: 75px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: darkorange;
+    border-radius: 25px;
+    background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+}
+
+#manageWindow #addBox{
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+#addBox #submitBox{
+    margin-top: 50px;
+}
+
+#manageWindow #deleteBox{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.input-group>.input-group-prepend{
+    flex: 0 030%;
+}
+.input-group .input-group-text{
+    width: 100%;
+    font-size: 11px;
+}

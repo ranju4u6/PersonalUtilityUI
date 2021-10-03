@@ -1,0 +1,78 @@
+<div class="container" *ngIf="user.userType.userType === 'USER'">
+  <div class="row" id="manageWindow">
+
+    <div class="col-md-6" id="addWindow">
+      <form [formGroup]="addTaskForm">
+
+        <div class="row">
+          <div class="col input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Target Date</div>
+            </div>
+            <input type="text" id="targetDateId" placeholder="YYYY-MM-DD" formControlName="targetDate">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="taskId"></label>
+              <textarea class="form-control" id="taskId" rows="3" formControlName="task"
+                placeholder="task..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+              <button id="addTaskBtnId" [disabled]="!addTaskForm.valid" type="button" class="btn btn-primary" (click)="addTask()">Add Task</button>
+          </div>
+        </div>
+
+
+        <!-- Task : <input type="text" placeholder="task.." formControlName="task">
+        Target Date : <input type="text" placeholder="YYYY-MM-DD" formControlName="targetDate">
+
+        <button [disabled]="!addTaskForm.valid" type="button" class="btn btn-primary" (click)="addTask()">Add Task</button> -->
+
+      </form>
+    </div>
+
+    <div class="col-md-6" id="updateWindow">
+      <table class="table table-striped" [mfData]="taskList" #mf="mfDataTable" [mfRowsOnPage]="7">
+        <thead>
+          <th>
+            Task
+          </th>
+          <th>
+            <mfDefaultSorter by="targetDate">Target Date</mfDefaultSorter>
+          </th>
+          <th></th>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let item of mf.data">
+            <td 
+            [ngClass]="{'past': isPastDate(item.targetDate) === true,
+            'now': isToday(item.targetDate) === true}">{{item.task}}</td>
+            <td>{{item.targetDate}}</td>
+            <td>
+              <span>
+                <i class="fa fa-trash" (click)="deleteTask(item.id)"></i>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colspan="4">
+              <mfBootstrapPaginator></mfBootstrapPaginator>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+  </div>
+</div>

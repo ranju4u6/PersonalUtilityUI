@@ -1,0 +1,43 @@
+<div class="fixed-nav">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#" [routerLink]="['/welcome/home']">
+    <img style="max-width: 40px; margin-top: -7px; padding-right: 2px;" src="assets/icon.png">  
+    Personal Utility
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown" *ngIf="user.userType.userType === 'USER'">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Utilities
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['utility/todoutility']">TO-DO</a>
+        </div>
+      </li>
+      <li class="nav-item" *ngIf="user.userType.userType === 'ADMIN'">
+        <a class="nav-link" [routerLink]="['settings']">Settings</a>
+      </li>
+    </ul>
+
+
+    
+
+    <ul class="navvar-nav ml-auto" style="list-style: none;">
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" (click)="logout()">
+          <i class="fa fa-fw fa-sign-out"></i>Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="content-wrapper">
+  <router-outlet></router-outlet>
+</div>
+
+</div>

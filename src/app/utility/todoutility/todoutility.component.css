@@ -1,0 +1,20 @@
+.container #manageWindow{
+    margin: 100px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: darkorange;
+    border-radius: 25px;
+    background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+}
+
+#manageWindow #addWindow{
+    margin-top: 100px;
+}
+.past {
+    color: red;
+}
+
+.now {
+    color: green;
+    font-weight: bold;
+}
